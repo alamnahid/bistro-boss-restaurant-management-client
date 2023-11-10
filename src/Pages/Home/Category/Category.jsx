@@ -13,7 +13,7 @@ import SectionTitle from '../../Shared/SectionTitle';
 
 const Category = () => {
     return (
-        <div>
+        <div className='max-w-screen-xl mx-auto'>
             <SectionTitle subHeading={'---From 11:00am to 10:00pm---'}
             heading={'ORDER ONLINE'} ></SectionTitle>
              <Swiper
