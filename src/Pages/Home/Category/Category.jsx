@@ -13,7 +13,7 @@ import SectionTitle from '../../Shared/SectionTitle';
 
 const Category = () => {
     return (
-        <div className='max-w-screen-xl mx-auto'>
+        <div className='max-w-screen-lg mx-auto mt-20'>
             <SectionTitle subHeading={'---From 11:00am to 10:00pm---'}
             heading={'ORDER ONLINE'} ></SectionTitle>
              <Swiper
@@ -23,18 +23,21 @@ const Category = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper mt-12"
+        autoplay
+        
       >
-        <SwiperSlide>
+        <SwiperSlide className=''>
             <img src={slide1} alt="" />
-            <h3 className='text-3xl uppercase text-center -mt-16 '>Salad</h3>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src={slide2} alt="" />
+            <h3 className='text-3xl uppercase ml-24 -mt-16 '>Salad</h3>
         </SwiperSlide>
         <SwiperSlide>
         <img src={slide3} alt="" />
         </SwiperSlide>
+        <SwiperSlide>
+        <img src={slide2} alt="" />
+        </SwiperSlide>
+        
         <SwiperSlide>
         <img src={slide4} alt="" />
         </SwiperSlide>
