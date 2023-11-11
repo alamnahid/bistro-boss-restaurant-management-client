@@ -2,22 +2,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import "./Category.css"
 
-//import images
-import slide1 from "../../../assets/home/slide1.jpg"
-import slide2 from "../../../assets/home/slide2.jpg"
-import slide3 from "../../../assets/home/slide3.jpg"
-import slide4 from "../../../assets/home/slide4.jpg"
-import slide5 from "../../../assets/home/slide5.jpg"
 import SectionTitle from '../../Shared/SectionTitle';
 
 const Category = () => {
     return (
-        <div className='max-w-screen-lg mx-auto mt-20'>
+        <div className='max-w-screen-xl mx-auto mt-20'>
             <SectionTitle subHeading={'---From 11:00am to 10:00pm---'}
             heading={'ORDER ONLINE'} ></SectionTitle>
              <Swiper
-        slidesPerView={3}
+        slidesPerView={4}
         spaceBetween={30}
         pagination={{
           clickable: true,
@@ -27,22 +22,34 @@ const Category = () => {
         autoplay
         
       >
-        <SwiperSlide className=''>
-            <img src={slide1} alt="" />
-            <h3 className='text-3xl uppercase ml-24 -mt-16 '>Salad</h3>
+        <SwiperSlide className='pb-12'>
+        <div className='swiper1 h-[22.3rem] flex justify-center items-end pb-3'>
+          <h1 className='text-white text-[2rem] font-bold cin'>Salads </h1>
+        </div>
         </SwiperSlide>
+
         <SwiperSlide>
-        <img src={slide3} alt="" />
+        <div className='swiper2 h-[22.3rem] flex justify-center items-end pb-3'>
+          <h1 className='text-white text-[2rem] font-bold cin'>Soups</h1>
+        </div>
         </SwiperSlide>
+
+
         <SwiperSlide>
-        <img src={slide2} alt="" />
+        <div className='swiper3 h-[22.3rem] flex justify-center items-end pb-3'>
+          <h1 className='text-white text-[2rem] font-bold cin'>pizzas</h1>
+        </div>
         </SwiperSlide>
         
         <SwiperSlide>
-        <img src={slide4} alt="" />
+        <div className='swiper4 h-[22.3rem] flex justify-center items-end pb-3'>
+          <h1 className='text-white text-[2rem] font-bold cin'>desserts</h1>
+        </div>
         </SwiperSlide>
         <SwiperSlide>
-        <img src={slide5} alt="" />
+        <div className='swiper5 h-[22.3rem] flex justify-center items-end pb-3'>
+          <h1 className='text-white text-[2rem] font-bold cin'>Salads</h1>
+        </div>
         </SwiperSlide>
         
       </Swiper>

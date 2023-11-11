@@ -1,0 +1,36 @@
+.swiper1{
+    background-image: url(../../../assets/home/slide1.jpg), linear-gradient(rgba(91, 86, 86, 0.4), rgba(0, 0, 0, 0.303));
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.swiper2{
+    background-image: url(../../../assets/home/slide2.jpg), linear-gradient(rgba(91, 86, 86, 0.4), rgba(0, 0, 0, 0.303));
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.swiper3{
+    background-image: url(../../../assets/home/slide3.jpg), linear-gradient(rgba(91, 86, 86, 0.4), rgba(0, 0, 0, 0.303));
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.swiper4{
+    background-image: url(../../../assets/home/slide4.jpg), linear-gradient(rgba(91, 86, 86, 0.4), rgba(0, 0, 0, 0.303));
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.swiper5{
+    background-image: url(../../../assets/home/slide5.jpg), linear-gradient(rgba(91, 86, 86, 0.4), rgba(0, 0, 0, 0.303));
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
