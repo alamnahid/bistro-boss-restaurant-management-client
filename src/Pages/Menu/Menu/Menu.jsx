@@ -4,12 +4,12 @@ import img from "../../../assets/menu/banner3.jpg"
 import useMenu from '../../../Hooks/useMenu';
 import SectionTitle from '../../Shared/SectionTitle';
 import MenuCategorie from '../Menu Category/MenuCategorie';
-import Button from '../../Shared/BUtton/Button';
 import desertbg from "../../../assets/menu/dessert-bg.jpeg"
 import pizzabg from "../../../assets/menu/pizza-bg.jpg"
 import saladbg from "../../../assets/menu/salad-bg.jpg"
 import soupbg from "../../../assets/menu/soup-bg.jpg"
-import { Link } from 'react-router-dom';
+
+import { useEffect } from 'react';
 
 const Menu = () => {
 
@@ -19,6 +19,10 @@ const Menu = () => {
     const salad = menu.filter(item => item.category === 'salad')
     const pizza = menu.filter(item => item.category === 'pizza')
     const offered = menu.filter(item => item.category === 'offered')
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
 
 

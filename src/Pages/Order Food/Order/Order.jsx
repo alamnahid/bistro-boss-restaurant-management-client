@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import orderCover from "../../../assets/shop/banner2.jpg"
 import MenuCover from "../../Shared/MenuCover/MenuCover";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -13,6 +13,9 @@ const Order = () => {
     const {category} = useParams();
     const initialIndex = categories.indexOf(category)
     const [tabIndex, setTabIndex] = useState(initialIndex)
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     const [menu] = useMenu();
 
@@ -23,7 +26,7 @@ const Order = () => {
     const drinks = menu.filter(item => item.category === 'drinks')
 
     return (
-        <div>
+        <div className="max-w-screen-2xl mx-auto">
             <Helmet>
                 <title>Bistro Boss | Order Food</title>
             </Helmet>
