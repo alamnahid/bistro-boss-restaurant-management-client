@@ -1,5 +1,6 @@
 .featured-Item{
-    background-image: url(../../../assets/home/featured.jpg);
+    background-image: url(../../../assets/home/bg-menu-feature.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }

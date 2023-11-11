@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div>
+        <div className="max-w-screen-2xl mx-auto">
             <div className="navbar fixed z-10 max-w-screen-2xl mx-auto bg-black bg-opacity-30">
   <div className="navbar-start">
     <div className="dropdown">
