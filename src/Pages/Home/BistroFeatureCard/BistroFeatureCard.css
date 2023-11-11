@@ -1,0 +1,6 @@
+.Feature-Container{
+        background-image: url(../../../assets/home/chef-service.jpg), linear-gradient(rgba(50, 45, 45, 0.192), rgba(93, 89, 89, 0.734));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-blend-mode: overlay;
+}
