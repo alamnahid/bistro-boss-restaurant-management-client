@@ -9,6 +9,7 @@ import desertbg from "../../../assets/menu/dessert-bg.jpeg"
 import pizzabg from "../../../assets/menu/pizza-bg.jpg"
 import saladbg from "../../../assets/menu/salad-bg.jpg"
 import soupbg from "../../../assets/menu/soup-bg.jpg"
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
 
@@ -22,7 +23,7 @@ const Menu = () => {
 
 
     return (
-        <div >
+        <div className='max-w-screen-2xl mx-auto' >
             <Helmet>
                 <title>Bistro Boss | Menu</title>
             </Helmet>
@@ -37,11 +38,11 @@ const Menu = () => {
                     heading={'TODAYS OFFER'} ></SectionTitle>
             </div>
 
-            <div className='max-w-screen-2xl mx-auto'>
+            <div className=''>
                 {/* offered menu items  */}
 
-                <MenuCategorie items={offered} ></MenuCategorie>
-                <div className='mt-11'><Button text={'ORDER YOUR FAVOURITE FOOD'} ></Button></div>
+                <MenuCategorie items={offered} title={'offered'}></MenuCategorie>
+                
 
                 {/* desert menu  */}
 
@@ -49,8 +50,8 @@ const Menu = () => {
                 <MenuCover img={desertbg} title={'DESSERTS'}
                 description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></MenuCover>
 
-                <MenuCategorie items={desert} ></MenuCategorie>
-                <div className='mt-11'><Button text={'ORDER YOUR FAVOURITE FOOD'} ></Button></div>
+                <MenuCategorie items={desert} title={'dessert'}></MenuCategorie>
+                
                 </div>
 
 
@@ -61,8 +62,8 @@ const Menu = () => {
                 <MenuCover img={pizzabg} title={'PIZZA'}
                 description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></MenuCover>
 
-                <MenuCategorie items={pizza} ></MenuCategorie>
-                <div className='mt-11'><Button text={'ORDER YOUR FAVOURITE FOOD'} ></Button></div>
+                <MenuCategorie items={pizza} title={'pizza'}></MenuCategorie>
+                
                 </div>
 
 
@@ -72,8 +73,8 @@ const Menu = () => {
                 <MenuCover img={saladbg} title={'SALADS'}
                 description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></MenuCover>
 
-                <MenuCategorie items={salad } ></MenuCategorie>
-                <div className='mt-11'><Button text={'ORDER YOUR FAVOURITE FOOD'} ></Button></div>
+                <MenuCategorie items={salad} title={'salad'} ></MenuCategorie>
+                
                 </div>
 
 
@@ -83,8 +84,8 @@ const Menu = () => {
                 <MenuCover img={soupbg} title={'SOUPS'}
                 description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></MenuCover>
 
-                <MenuCategorie items={soup} ></MenuCategorie>
-                <div className='mt-11'><Button text={'ORDER YOUR FAVOURITE FOOD'} ></Button></div>
+                <MenuCategorie items={soup} title={'soup'}></MenuCategorie>
+               
                 </div>
 
                 
