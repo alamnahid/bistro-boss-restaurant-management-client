@@ -8,7 +8,7 @@ const MenuItem = ({ item }) => {
     return (
         <div>
 
-            <div className="flex">
+            <div className="flex justify-center">
                 <img className="w-[7.3rem] h-[6.5rem]" style={{
                     borderRadius: "0rem 12.5rem 12.5rem 12.5rem"
                 }} src={image} alt="food image" />

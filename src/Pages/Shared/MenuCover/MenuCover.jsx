@@ -15,7 +15,7 @@ const MenuCover = ({img, title, description}) => {
 
                 <div style={{background: "rgba(21, 21, 21, 0.60)"}} className="w-[80rem] mx-auto flex flex-col justify-center items-center text-center h-[21rem]">
                     <h1 className="text-white cin text-[5.5rem] font-bold">{title}</h1>
-                    <p className="text-white mx-auto text-[1.5rem] mt-2 text-center">{description}</p> 
+                    <p className="text-white w-[53rem] mx-auto text-[1.5rem] mt-2 text-center">{description}</p> 
                 </div>
 
 
