@@ -4,13 +4,15 @@ import fb from "../../assets/icon/fb.svg"
 import google from "../../assets/icon/google.svg"
 import github from "../../assets/icon/git.svg"
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { useEffect, useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
+import { AuthContext } from "../../Providers/AuthProvider"
+import { Link } from "react-router-dom"
 
 
 const Login = () => {
 
     const captchaRef = useRef(null)
-    // const [capcthavalue, setCaptchaValue] =
+    const {signIn} =useContext(AuthContext);
 
     useEffect(()=>{
         loadCaptchaEnginge(6);
@@ -25,6 +27,8 @@ const Login = () => {
         const user_captcha_value  = captchaRef.current.value;
         if (validateCaptcha(user_captcha_value)==true) {
             alert('Captcha Matched');
+            signIn(email, password)
+            .then(result=>console.log(result.user))
         }
    
         else {
@@ -80,7 +84,7 @@ const Login = () => {
                         
                         <input className="w-full mt-5 h-[3.5rem] btn btn-neutral border-none bg-[#D1A054B3] text-white text-xl font-bold" type="submit"  id="" value="Sign In" />
 
-                        <p className="text-[#D1A054] mt-5 text-center text-xl font-medium">New here? <span className="font-bold">Create a New Account</span></p>
+                        <p className="text-[#D1A054] mt-5 text-center text-xl font-medium">New here? <Link to='/signup'><span className="font-bold">Create a New Account</span></Link></p>
 
                         <p className="text-[#444] mt-5 text-xl font-medium text-center">Or sign in with</p>
 
