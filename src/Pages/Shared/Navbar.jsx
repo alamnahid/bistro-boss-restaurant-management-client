@@ -1,9 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import cart from "../../assets/icon/cart.png"
 import avatar from "../../assets/icon/avatar.svg"
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
+  const handleLogout = ()=>{
+    logOut()
+    .then()
+  }
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div style={{ background: "rgba(21, 21, 21, 0.50)" }} className="navbar fixed z-10 max-w-screen-2xl mx-auto bg-black bg-opacity-100">
@@ -66,11 +73,23 @@ const Navbar = () => {
         <div className="w-[300px] space-x-3">
           <img className="w-[3.875rem] h-[2.68rem] cursor-pointer" src={cart} alt="" />
 
-          <NavLink className={({ isActive }) =>
+          {
+            user ? <NavLink onClick={handleLogout} className={({ isActive }) =>
             isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/login'>sign out</NavLink>
 
+            :
+            <NavLink className={({ isActive }) =>
+            isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/login'>Sign in</NavLink>
+          }
 
-          <img className="w-[3.5rem] h-[3.2rem] cursor-pointer" src={avatar} alt="" />
+          
+
+          {
+            user?.photoURL ? <img className="w-[3.5rem] h-[3.2rem] rounded-[50%] cursor-pointer" src={user.photoURL} alt="" />
+            :
+            <img className="w-[3.5rem] h-[3.2rem] cursor-pointer" src={avatar} alt="" />
+          }
+          
 
         </div>
       </div>

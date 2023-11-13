@@ -6,23 +6,51 @@ import fb from "../../assets/icon/fb.svg"
 import google from "../../assets/icon/google.svg"
 import github from "../../assets/icon/git.svg"
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
 
-    const {createUser} =useContext(AuthContext);
+    const {createUser, updateUserProfile} =useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.form?.pathname || "/";
 
     const {
         register,
-        handleSubmit,   
+        handleSubmit,  
+        reset,
         formState: { errors },
       } = useForm();
 
       const onSubmit = (data) => {
         console.log(data)
         createUser(data.email, data.password)
-        .then(result=>console.log(result.user))
+        .then(result=>{console.log(result.user)
+        updateUserProfile(data.name, data.photo)
+        .then((result=>{
+            Swal.fire({
+                title: "Sign up Successfully",
+                showClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `
+                },
+                hideClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `
+                }
+              });
+              navigate(from, {replace: true})
+        }))
+        })
     }
    
 
@@ -50,6 +78,13 @@ const SignUp = () => {
                     <input className="w-full mt-2 h-[3.5rem] text-gray-700 placeholder:text-[#A1A1A1] text-lg outline-none pl-[1.81rem] rounded-lg border-2 border-[#D0D0D0] bg-white" type="text" name="name" id="" placeholder="Your name" {...register("name", { required: true })} />
 
                     {errors.name && <span>This field is required</span>}
+
+                    <p className="text-[#444] mt-5 text-xl font-semibold">Photo</p>
+
+<input className="w-full mt-2 h-[3.5rem] text-gray-700 placeholder:text-[#A1A1A1] text-lg outline-none pl-[1.81rem] rounded-lg border-2 border-[#D0D0D0] bg-white" type="text" name="photo" id="" placeholder="Your Photo URL" {...register("photo", { required: true })} />
+
+{errors.name && <span>This field is required</span>}
+
 
 
                         <p className="text-[#444] mt-5 text-xl font-semibold">Email</p>

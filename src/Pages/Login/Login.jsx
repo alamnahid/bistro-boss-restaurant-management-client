@@ -6,13 +6,18 @@ import github from "../../assets/icon/git.svg"
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useRef } from "react"
 import { AuthContext } from "../../Providers/AuthProvider"
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import Swal from "sweetalert2"
 
 
 const Login = () => {
 
     const captchaRef = useRef(null)
     const {signIn} =useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.form?.pathname || "/";
 
     useEffect(()=>{
         loadCaptchaEnginge(6);
@@ -26,13 +31,37 @@ const Login = () => {
 
         const user_captcha_value  = captchaRef.current.value;
         if (validateCaptcha(user_captcha_value)==true) {
-            alert('Captcha Matched');
             signIn(email, password)
-            .then(result=>console.log(result.user))
+            .then(result=>{console.log(result.user)
+                Swal.fire({
+                    title: "Logged in Successfully",
+                    showClass: {
+                      popup: `
+                        animate__animated
+                        animate__fadeInUp
+                        animate__faster
+                      `
+                    },
+                    hideClass: {
+                      popup: `
+                        animate__animated
+                        animate__fadeOutDown
+                        animate__faster
+                      `
+                    }
+                  });
+                navigate(from, {replace: true})
+
+            })
         }
    
         else {
-            alert('Captcha Does Not Match');
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Captcha Don't Match",
+                
+              });
         }
         
 
