@@ -1,15 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
-import cart from "../../assets/icon/cart.png"
+import { PiShoppingCartBold } from "react-icons/pi";
+
 import avatar from "../../assets/icon/avatar.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Navbar = () => {
-  const {user, logOut} = useContext(AuthContext);
-  const handleLogout = ()=>{
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
     logOut()
-    .then()
+      .then()
   }
   return (
     <div className="max-w-screen-2xl mx-auto">
@@ -20,24 +21,24 @@ const Navbar = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              
-
-              
-            <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/'>Home</NavLink></li>
-
-            <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/contact'>Contact us</NavLink></li>
 
 
-            <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard'>Dashboard </NavLink></li>
 
-            <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/menu'>Our  Menu</NavLink></li>
+              <li><NavLink className={({ isActive }) =>
+                isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/'>Home</NavLink></li>
 
-            <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/shop'>Our shop</NavLink></li>
+              <li><NavLink className={({ isActive }) =>
+                isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/contact'>Contact us</NavLink></li>
+
+
+              <li><NavLink className={({ isActive }) =>
+                isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard'>Dashboard </NavLink></li>
+
+              <li><NavLink className={({ isActive }) =>
+                isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/menu'>Our  Menu</NavLink></li>
+
+              <li><NavLink className={({ isActive }) =>
+                isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to="/order/salad">Our shop</NavLink></li>
 
 
             </ul>
@@ -65,31 +66,34 @@ const Navbar = () => {
               isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/menu'>Our  Menu</NavLink></li>
 
             <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/shop'>Our shop</NavLink></li>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/order/salad'>Our shop</NavLink></li>
 
 
           </ul>
         </div>
-        <div className="w-[300px] space-x-3">
-          <img className="w-[3.875rem] h-[2.68rem] cursor-pointer" src={cart} alt="" />
+        <div className="w-[380px] space-x-3">
+          <Link><button className="btn">
+            <PiShoppingCartBold/>
+            <div className="badge badge-secondary">+0</div>
+          </button></Link>
 
           {
             user ? <NavLink onClick={handleLogout} className={({ isActive }) =>
-            isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/login'>sign out</NavLink>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/login'>sign out</NavLink>
 
-            :
-            <NavLink className={({ isActive }) =>
-            isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/login'>Sign in</NavLink>
+              :
+              <NavLink className={({ isActive }) =>
+                isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/login'>Sign in</NavLink>
           }
 
-          
+
 
           {
             user?.photoURL ? <img className="w-[3.5rem] h-[3.2rem] rounded-[50%] cursor-pointer" src={user.photoURL} alt="" />
-            :
-            <img className="w-[3.5rem] h-[3.2rem] cursor-pointer" src={avatar} alt="" />
+              :
+              <img className="w-[3.5rem] h-[3.2rem] cursor-pointer" src={avatar} alt="" />
           }
-          
+
 
         </div>
       </div>
