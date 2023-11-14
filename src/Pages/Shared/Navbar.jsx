@@ -4,10 +4,12 @@ import { PiShoppingCartBold } from "react-icons/pi";
 import avatar from "../../assets/icon/avatar.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import usecart from "../../Hooks/usecart";
 
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = usecart();
   const handleLogout = () => {
     logOut()
       .then()
@@ -74,7 +76,7 @@ const Navbar = () => {
         <div className="w-[380px] space-x-3">
           <Link><button className="btn">
             <PiShoppingCartBold/>
-            <div className="badge badge-secondary">+0</div>
+            <div className="badge badge-secondary">+{cart.length}</div>
           </button></Link>
 
           {

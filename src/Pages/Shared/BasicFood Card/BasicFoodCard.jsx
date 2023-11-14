@@ -1,17 +1,45 @@
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import axios from "axios";
+import usecart from "../../../Hooks/usecart";
 
 
 const BasicFoodCard = ({item}) => {
-    const { name, image, recipe, price } = item;
+    const { name, image, recipe, price, _id } = item;
     const {user} = useAuth();
-    const navigate = useNavigate()
-    const location = useLocation()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const axiosSecure = useAxiosSecure();
+    const [, refetch] = usecart();
 
     const handleAddtoCart = (food)=>{
         if(user && user.email){
-            //
+            
+            const cartItem = {
+                menuId: _id,
+                email: user.email,
+                name,
+                image,
+                price
+
+            }
+            axiosSecure.post('/carts', cartItem)
+            // axios.post('http://localhost:5000/carts', cartItem)
+            .then(res=>{
+                console.log(res.data)
+                if(res.data.insertedId){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Product added to cart",
+                        showConfirmButton: false,
+                        timer: 1000
+                      });
+                      refetch()
+                }
+            })
         }
         else{
                 Swal.fire({
@@ -25,7 +53,7 @@ const BasicFoodCard = ({item}) => {
                 }).then((result) => {
                 if (result.isConfirmed) {
                    //send
-                   navigate('/login')
+                   navigate('/login', {state: {from: location}})
                 }
                 });
         }
