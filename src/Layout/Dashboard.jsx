@@ -18,7 +18,7 @@ const Dashboard = () => {
                     <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base" to="/dashboard/cart"><FaHome className="text-2xl"/> My Cart</NavLink></li>
                     <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem]" to="/dashboard/additems"><IoFastFood className="text-2xl"/> add items</NavLink></li>
                     <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem]" to="/dashboard/manageitem"><IoMenu className="text-2xl"/> manage items</NavLink></li>
-                    <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem]" to="/dashboard/manageitem"><IoCalendarClear className="text-2xl"/> Manage bookings</NavLink></li>
+                    <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem]" to="/dashboard/cart"><IoCalendarClear className="text-2xl"/> Manage bookings</NavLink></li>
                     <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem]" to="/dashboard/manageitem"><FaUsers className="text-2xl"/> all users</NavLink></li>
                     
                     <div className="divider"></div> 

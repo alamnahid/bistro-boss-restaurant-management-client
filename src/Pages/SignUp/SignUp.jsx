@@ -8,13 +8,15 @@ import github from "../../assets/icon/git.svg"
 import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const SignUp = () => {
 
-    const {createUser, updateUserProfile} =useContext(AuthContext);
+    const {createUser, updateUserProfile, googleSignIn} =useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation()
+    const axiosPublic = useAxiosPublic()
 
     const from = location.state?.form?.pathname || "/";
 
@@ -29,27 +31,43 @@ const SignUp = () => {
         console.log(data)
         createUser(data.email, data.password)
         .then(result=>{console.log(result.user)
-        updateUserProfile(data.name, data.photo)
-        .then((result=>{
-            Swal.fire({
-                title: "Sign up Successfully",
-                showClass: {
-                  popup: `
-                    animate__animated
-                    animate__fadeInUp
-                    animate__faster
-                  `
-                },
-                hideClass: {
-                  popup: `
-                    animate__animated
-                    animate__fadeOutDown
-                    animate__faster
-                  `
+       
+            updateUserProfile(data.name, data.photo)
+        .then((()=>{
+            const userInfo = {
+                name: data.name,
+                email: data.email
+            }
+            axiosPublic.post('/users', userInfo )
+            .then(res=>{
+                console.log('fgfgfgfg')
+                if(res.data.insertedId){
+                    reset();
+                    alert('signup succesfully');
+                    navigate('/')
                 }
-              });
-              navigate(from, {replace: true})
+            })
+            
+            
+            //   navigate(from, {replace: true})
         }))
+        })
+    }
+
+    const handleGoogleSignIn = ()=>{
+        googleSignIn()
+        .then(result=>{
+            console.log(result.user)
+            const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName
+
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res=>{
+                console.log(res)
+                navigate('/')
+            })
         })
     }
    
@@ -109,7 +127,7 @@ const SignUp = () => {
                             <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
                                 <img src={fb} alt="" />
                             </div>
-                            <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
+                            <div onClick={handleGoogleSignIn} className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
                                 <img src={google} alt="" />
                             </div>
                             <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">

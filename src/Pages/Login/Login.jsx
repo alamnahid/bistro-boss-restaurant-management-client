@@ -8,14 +8,16 @@ import { useContext, useEffect, useRef } from "react"
 import { AuthContext } from "../../Providers/AuthProvider"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
+import useAxiosPublic from "../../Hooks/useAxiosPublic"
 
 
 const Login = () => {
 
     const captchaRef = useRef(null)
-    const {signIn} =useContext(AuthContext);
+    const {signIn, googleSignIn} =useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation()
+    const axiosPublic = useAxiosPublic()
 
     const from = location.state?.form?.pathname || "/";
 
@@ -67,6 +69,23 @@ const Login = () => {
 
         console.log(email, password, user_captcha_value)
 
+    }
+
+    const handleGoogleSignIn = ()=>{
+        googleSignIn()
+        .then(result=>{
+            console.log(result.user)
+            const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName
+
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res=>{
+                console.log(res)
+                navigate('/')
+            })
+        })
     }
 
 
@@ -121,7 +140,7 @@ const Login = () => {
                             <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
                                 <img src={fb} alt="" />
                             </div>
-                            <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
+                            <div onClick={handleGoogleSignIn} className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
                                 <img src={google} alt="" />
                             </div>
                             <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
