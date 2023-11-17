@@ -74,7 +74,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="w-[380px] space-x-3">
-          <Link to='/dashboard/cart'><button className="btn">
+          <Link to='/dashboard/cart'><button className="flex px-2 text-xl text-white">
             <PiShoppingCartBold/>
             <div className="badge badge-secondary">+{cart.length}</div>
           </button></Link>

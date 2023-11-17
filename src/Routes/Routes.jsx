@@ -13,6 +13,7 @@ import AddItems from "../Pages/Dashboard/AddItems";
 import AdminRoutes from "./AdminRoutes";
 import ManageItems from "../Dashboard/Manage Items/ManageItems";
 import UpdateItems from "../Dashboard/Update Items/UpdateItems";
+import Contact from "../Pages/Contact Page/Contact";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
           path: '/order/:category',
           element: <Order></Order>
         },
+        {
+          path: '/contact',
+          element: <Contact></Contact>
+        }
         
         
 

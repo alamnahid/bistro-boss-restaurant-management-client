@@ -5,6 +5,7 @@ import { Pagination } from 'swiper/modules';
 import "./Category.css"
 
 import SectionTitle from '../../Shared/SectionTitle';
+import { Link } from 'react-router-dom';
 
 const Category = () => {
     return (
@@ -23,33 +24,36 @@ const Category = () => {
         
       >
         <SwiperSlide className='pb-12'>
-        <div className='swiper1 h-[22.3rem] flex justify-center items-end pb-3'>
+       <Link to="/order/salad">
+       <div className='swiper1 h-[22.3rem] flex justify-center items-end pb-3'>
           <h1 className='text-white text-[2rem] font-bold cin'>Salads </h1>
         </div>
+       </Link>
         </SwiperSlide>
 
         <SwiperSlide>
-        <div className='swiper2 h-[22.3rem] flex justify-center items-end pb-3'>
+        <Link to="/order/soup"><div className='swiper2 h-[22.3rem] flex justify-center items-end pb-3'>
           <h1 className='text-white text-[2rem] font-bold cin'>Soups</h1>
-        </div>
+        </div></Link>
         </SwiperSlide>
 
 
         <SwiperSlide>
-        <div className='swiper3 h-[22.3rem] flex justify-center items-end pb-3'>
+        <Link to="/order/pizza"><div className='swiper3 h-[22.3rem] flex justify-center items-end pb-3'>
           <h1 className='text-white text-[2rem] font-bold cin'>pizzas</h1>
-        </div>
+        </div></Link>
         </SwiperSlide>
         
         <SwiperSlide>
+        <Link to="/order/dessert">
         <div className='swiper4 h-[22.3rem] flex justify-center items-end pb-3'>
           <h1 className='text-white text-[2rem] font-bold cin'>desserts</h1>
-        </div>
+        </div></Link>
         </SwiperSlide>
         <SwiperSlide>
-        <div className='swiper5 h-[22.3rem] flex justify-center items-end pb-3'>
+        <Link to="/order/salad"><div className='swiper5 h-[22.3rem] flex justify-center items-end pb-3'>
           <h1 className='text-white text-[2rem] font-bold cin'>Salads</h1>
-        </div>
+        </div></Link>
         </SwiperSlide>
         
       </Swiper>
@@ -59,3 +63,5 @@ const Category = () => {
 };
 
 export default Category;
+
+///order/salad
