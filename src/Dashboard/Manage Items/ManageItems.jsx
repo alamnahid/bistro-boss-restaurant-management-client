@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useMenu from "../../Hooks/useMenu";
 import SectionTitle from "../../Pages/Shared/SectionTitle";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 const ManageItems = () => {
@@ -79,7 +80,7 @@ const ManageItems = () => {
             </td>
             <td>{item?.price}</td>
             <td>
-              <button className="btn btn-ghost btn-xs">details</button>
+             <Link to={`/dashboard/updateitem/${item._id}`}> <button className="btn btn-ghost btn-xs">details</button></Link>
             </td>
             <td>
               <button onClick={()=> handleDeleteItem(item)} className="btn btn-ghost btn-xs">Delete</button>
