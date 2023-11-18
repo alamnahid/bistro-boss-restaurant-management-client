@@ -16,6 +16,7 @@ import UpdateItems from "../Dashboard/Update Items/UpdateItems";
 import Contact from "../Pages/Contact Page/Contact";
 import AdminHome from "../Dashboard/Admin Home/AdminHome";
 import ErrorElement from "../Pages/ErrroPage/ErrorElement";
+import UserHome from "../Dashboard/UserHome/UserHome";
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
         {
           path: 'cart',
           element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
+        },
+        {
+          path: 'userhome',
+          element: <PrivateRoutes><UserHome></UserHome></PrivateRoutes>
         },
         //admin routes
         {
