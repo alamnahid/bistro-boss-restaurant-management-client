@@ -10,7 +10,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
-
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const SignUp = () => {
 
     const {createUser, updateUserProfile, googleSignIn} =useContext(AuthContext);
@@ -27,12 +28,22 @@ const SignUp = () => {
         formState: { errors },
       } = useForm();
 
-      const onSubmit = (data) => {
+      const onSubmit =async (data) => {
         console.log(data)
+        const imageFile = {image: data.image[0]}
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-Type' : 'multipart/form-data'
+            }
+        })
+        if(res.data.success){
+           
+            console.log(res.data.display_url)
+            }
         createUser(data.email, data.password)
         .then(result=>{console.log(result.user)
        
-            updateUserProfile(data.name, data.photo)
+            updateUserProfile(data.name, res.data.display_url)
         .then((()=>{
             const userInfo = {
                 name: data.name,
@@ -43,8 +54,14 @@ const SignUp = () => {
                 console.log('fgfgfgfg')
                 if(res.data.insertedId){
                     reset();
-                    alert('signup succesfully');
-                    navigate('/')
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Signed up Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                      navigate(from, {replace: true})
                 }
             })
             
@@ -66,7 +83,14 @@ const SignUp = () => {
             axiosPublic.post('/users', userInfo)
             .then(res=>{
                 console.log(res)
-                navigate('/')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Signed up Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate(from, {replace: true})
             })
         })
     }
@@ -97,9 +121,18 @@ const SignUp = () => {
 
                     {errors.name && <span>This field is required</span>}
 
+
+
+
+                    <p className="text-[#444] mt-5 text-xl font-semibold">Photo</p>
+                    <div>
+                        <input type="file" {...register("image", {required: true})} name="image" className="file-input file-input-bordered file-input-warning w-full mt-2 h-[3.5rem]" />
+                        </div>
+
+{/* 
                     <p className="text-[#444] mt-5 text-xl font-semibold">Photo</p>
 
-<input className="w-full mt-2 h-[3.5rem] text-gray-700 placeholder:text-[#A1A1A1] text-lg outline-none pl-[1.81rem] rounded-lg border-2 border-[#D0D0D0] bg-white" type="text" name="photo" id="" placeholder="Your Photo URL" {...register("photo", { required: true })} />
+<input className="w-full mt-2 h-[3.5rem] text-gray-700 placeholder:text-[#A1A1A1] text-lg outline-none pl-[1.81rem] rounded-lg border-2 border-[#D0D0D0] bg-white" type="text" name="photo" id="" placeholder="Your Photo URL" {...register("photo", { required: true })} /> */}
 
 {errors.name && <span>This field is required</span>}
 

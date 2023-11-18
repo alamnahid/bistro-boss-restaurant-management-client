@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { FaTrash, FaUser } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import SectionTitle from "../../Pages/Shared/SectionTitle";
+import avatar from "../../assets/icon/avatar2.svg"
 
 
 const AllUsers = () => {
@@ -57,11 +59,14 @@ const AllUsers = () => {
 
 
     return (
-        <div>
+        <div className="mx-[10%]">
 
-            <div className="flex justify-around">
-                <h2 className="text-4xl">All users</h2>
-                <h2 className="text-4xl">Total Users {users.length}</h2>
+            <div className="mt-12">
+                <SectionTitle subHeading={'---How many??---'} heading={'MANAGE ALL USERS'}></SectionTitle>
+            </div>
+
+            <div className="flex justify-start mt-12">
+                <h2 className="text-black text-[2rem] font-bold cin">Total Users {users.length}</h2>
 
                 <div>
 
@@ -70,16 +75,16 @@ const AllUsers = () => {
                 </div>
             </div>
 
-            <div className="overflow-x-auto">
-                        <table className="table table-zebra">
+            <div className="overflow-x-auto rounded-tl-2xl rounded-tr-2xl mt-8">
+                        <table className="table table-zebra rounded-tl-2xl rounded-tr-2xl">
                             {/* head */}
-                            <thead>
+                            <thead className="bg-[#D1A054] h-[4.5rem] rounded-tl-2xl rounded-tr-2xl">
                                 <tr>
-                                    <th></th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Action</th>
+                                    <th className="text-white font-semibold"></th>
+                                    <th className="text-white font-semibold">Name</th>
+                                    <th className="text-white font-semibold">Email</th>
+                                    <th className="text-white font-semibold">Role</th>
+                                    <th className="text-white font-semibold">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,14 +96,14 @@ const AllUsers = () => {
                                         <td>{user.email}</td>
                                        
                                        
-                                        <td>
+                                        <td className="">
                                            {
-                                            user.role==='admin' ? 'Admin' :  <button onClick={()=>handleMakeAdmin(user)} className="btn btn-ghost btn-xs"><FaUser/></button>
+                                            user.role==='admin' ? 'Admin' :  <button onClick={()=>handleMakeAdmin(user)} className="btn w-[3.1rem] h-[3.1rem] rounded-md bg-[#D1A054] btn-neutral border-none btn-xs"><img src={avatar} alt="" /></button>
                                            }
                                         
                                         </td>
                                        
-                                        <td><button onClick={()=>handleDelete(user._id)} className="btn btn-ghost btn-xs"><FaTrash></FaTrash></button></td>
+                                        <td><button onClick={()=>handleDelete(user._id)} className="btn w-[3.1rem] h-[3.1rem] rounded-md bg-[#B91C1C] btn-neutral border-none btn-xs text-white"><FaTrash></FaTrash></button></td>
                                     </tr>)
                                 }
 

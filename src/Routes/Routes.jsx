@@ -14,12 +14,15 @@ import AdminRoutes from "./AdminRoutes";
 import ManageItems from "../Dashboard/Manage Items/ManageItems";
 import UpdateItems from "../Dashboard/Update Items/UpdateItems";
 import Contact from "../Pages/Contact Page/Contact";
+import AdminHome from "../Dashboard/Admin Home/AdminHome";
+import ErrorElement from "../Pages/ErrroPage/ErrorElement";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorElement></ErrorElement>,
       children: [
         {
             path: '/',
@@ -53,6 +56,8 @@ const router = createBrowserRouter([
     {
       path: 'dashboard',
       element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+
+      errorElement: <ErrorElement></ErrorElement>,
       children: [
         {
           path: 'cart',
@@ -62,6 +67,10 @@ const router = createBrowserRouter([
         {
           path: 'users',
           element: <AdminRoutes><AllUsers></AllUsers></AdminRoutes>
+        },
+        {
+          path: 'adminhome',
+          element: <AdminRoutes><AdminHome></AdminHome></AdminRoutes>
         },
         {
           path: 'additems',

@@ -23,10 +23,9 @@ const Dashboard = () => {
                 <ul className="menu w-full px-0 mt-16">
                     {
                         isAdmin ? <>
-                        <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base" to="/dashboard/adminHome"><FaHome className="text-2xl"/> Admin Home</NavLink></li>
+                        <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base" to="/dashboard/adminhome"><FaHome className="text-2xl"/> Admin Home</NavLink></li>
                     <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem] hover:bg-white " to="/dashboard/additems"><IoFastFood className="text-2xl"/> Add Items</NavLink></li>
                     <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem] hover:bg-white " to="/dashboard/manageitems"><IoMenu className="text-2xl"/> manage items</NavLink></li>
-                    <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem] hover:bg-white " to="/dashboard/bookings"><IoCalendarClear className="text-2xl"/> Manage bookings</NavLink></li>
                     <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem] hover:bg-white " to="/dashboard/users"><FaUsers className="text-2xl"/> all users</NavLink></li>
                         </>
                         :

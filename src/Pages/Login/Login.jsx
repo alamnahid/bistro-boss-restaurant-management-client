@@ -83,8 +83,14 @@ const Login = () => {
             }
             axiosPublic.post('/users', userInfo)
             .then(res=>{
-                console.log(res)
-                navigate('/')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Signed up Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate(from, {replace: true})
             })
         })
     }
