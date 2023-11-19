@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import SectionTitle from "../../Pages/Shared/SectionTitle";
 import deleteicon from "../../assets/icon/delete.svg"
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
@@ -52,7 +53,11 @@ const Cart = () => {
       <div className="flex justify-between items-center ">
         <h1 className="text-black text-[2rem] cin font-bold">Items: {cart.length}</h1>
         <h1 className="text-black text-[2rem] cin font-bold">Total Price: {totalPrice}</h1>
-        <button className="btn btn-neutral text-white text-xl bg-[#D1A054] border-none">Pay</button>
+        {
+          cart.length ? <Link to='/dashboard/payment'><button className="btn btn-neutral text-white text-xl bg-[#D1A054] border-none">Pay</button></Link> 
+          :
+          <button disabled className="btn btn-neutral text-white text-xl bg-[#D1A054] border-none">Pay</button>
+        }
       </div>
 
 

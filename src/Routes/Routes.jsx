@@ -17,6 +17,8 @@ import Contact from "../Pages/Contact Page/Contact";
 import AdminHome from "../Dashboard/Admin Home/AdminHome";
 import ErrorElement from "../Pages/ErrroPage/ErrorElement";
 import UserHome from "../Dashboard/UserHome/UserHome";
+import Dashboardd from "../Dashboard/Dashboardd";
+import Payment from "../Dashboard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -40,7 +42,7 @@ const router = createBrowserRouter([
         {
           path: '/contact',
           element: <Contact></Contact>
-        }
+        },
         
         
 
@@ -63,6 +65,10 @@ const router = createBrowserRouter([
         {
           path: 'cart',
           element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
         },
         {
           path: 'userhome',

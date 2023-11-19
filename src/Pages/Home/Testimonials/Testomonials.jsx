@@ -36,8 +36,8 @@ const Testomonials = () => {
                             readOnly
                             />
                             <img className="mx-auto mt-12 mb-10" src={qut} alt="" />
-                            <p className="w-[68rem] mx-auto text-[#444] text-xl">{review?.details}</p>
-                            <h3 className="text-[#CD9003] text-[2rem] font-medium">{review?.name}</h3>
+                            <p className="md:w-[68rem] mx-auto text-[#444] text-xl">{review?.details}</p>
+                            <h3 className="text-[#CD9003] mt-4 text-xs md:text-[2rem] font-medium">{review?.name}</h3>
 
                         </div>
 
