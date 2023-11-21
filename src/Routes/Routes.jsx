@@ -19,6 +19,7 @@ import ErrorElement from "../Pages/ErrroPage/ErrorElement";
 import UserHome from "../Dashboard/UserHome/UserHome";
 import Dashboardd from "../Dashboard/Dashboardd";
 import Payment from "../Dashboard/Payment/Payment";
+import PaymentHistory from "../Dashboard/Payment History/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
           path: 'userhome',
           element: <PrivateRoutes><UserHome></UserHome></PrivateRoutes>
         },
+        {
+          path: 'paymenthistory',
+          element: <PaymentHistory></PaymentHistory>
+        },
         //admin routes
         {
           path: 'users',
@@ -94,8 +99,8 @@ const router = createBrowserRouter([
         {
           path: 'updateitem/:id',
           element: <AdminRoutes><UpdateItems></UpdateItems></AdminRoutes>,
-          // loader: ({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
-          loader: ()=>fetch('http://localhost:5000/menu')
+          // loader: ({params})=>fetch(`https://bistro-boss-server-three-sigma.vercel.app/menu/${params.id}`)
+          loader: ()=>fetch('https://bistro-boss-server-three-sigma.vercel.app/menu')
 
         }
       ]

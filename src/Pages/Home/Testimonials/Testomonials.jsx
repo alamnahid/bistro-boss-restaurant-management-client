@@ -13,7 +13,7 @@ const Testomonials = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/reviews')
+        fetch('https://bistro-boss-server-three-sigma.vercel.app/reviews')
         .then(res=>res.json())
         .then(data=>setReviews(data))
     }, [])
@@ -37,7 +37,7 @@ const Testomonials = () => {
                             />
                             <img className="mx-auto mt-12 mb-10" src={qut} alt="" />
                             <p className="md:w-[68rem] mx-auto text-[#444] text-xl">{review?.details}</p>
-                            <h3 className="text-[#CD9003] mt-4 text-xs md:text-[2rem] font-medium">{review?.name}</h3>
+                            <h3 className="text-[#CD9003] mt-4 text-xs md:text-[1.3rem] font-medium">{review?.name}</h3>
 
                         </div>
 

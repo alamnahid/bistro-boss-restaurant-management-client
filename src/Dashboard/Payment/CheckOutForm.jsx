@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import usecart from "../../Hooks/usecart";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 // 1. install stripe and stripe React
 // 2. create card element
@@ -19,18 +21,21 @@ const CheckOutForm = () => {
   const [clientSecret, setClientSecret] = useState('')
   const [transactionId, setTransactionId] = useState('')
   const {user} = useAuth();
+  const navigate = useNavigate();
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure()
-    const [cart] = usecart();
+    const [cart, refetch] = usecart();
     const totalPrice = cart.reduce((total, item)=>total + item.price, 0)
 
     useEffect(()=>{
-      axiosSecure.post('/create-payment-intent', {price: totalPrice})
+      if(totalPrice> 0){
+        axiosSecure.post('/create-payment-intent', {price: totalPrice})
       .then(res=>{
         console.log(res.data.clientSecret)
         setClientSecret(res.data.clientSecret)
       })
+      }
     }, [axiosSecure, totalPrice])
 
 
@@ -77,12 +82,37 @@ const CheckOutForm = () => {
           if(paymentIntent.status==='succeeded'){
             console.log('transaction id', paymentIntent.id);
             setTransactionId(paymentIntent.id)
+
+            // now save the payment in the database
+            const payment = {
+              email: user.email,
+              price: totalPrice,
+              transactionId: paymentIntent.id,
+              date: new Date(),
+              cartIds: cart.map(item=>item._id),
+              menuItemIds: cart.map(item=>item.menuId),
+              status: 'pending'
+            }
+           const res = await axiosSecure.post('/payments', payment)
+           console.log(res.data)
+           refetch();
+           if(res.data?.paymentResult?.insertedId){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Payment Successfull",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/dashboard/paymenthistory')
+           }
+
           }
         }
     }
     return (
         <form onSubmit={handleSubmit}>
-            <CardElement
+            <CardElement className="border-2 h-14 pt-4 p-4"
         options={{
           style: {
             base: {
@@ -98,13 +128,16 @@ const CheckOutForm = () => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}>
+       <p className="text-red-700">{error}</p>
+      {
+        transactionId && <p className="text-green-500 text-lg">Your transaction ID: {transactionId}</p>
+      }
+     <div className=" text-center">
+     <button className="w-[400px] h-[4rem] btn btn-neutral mt-12" type="submit" disabled={!stripe}>
         Pay
       </button>
-      <p className="text-red-700">{error}</p>
-      {
-        transactionId && <p className="text-green-500">Your transaction ID: {transactionId}</p>
-      }
+     </div>
+     
 
 
         </form>

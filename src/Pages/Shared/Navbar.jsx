@@ -5,11 +5,13 @@ import avatar from "../../assets/icon/avatar.svg"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import usecart from "../../Hooks/usecart";
+import useAdmin from "../../Hooks/useAdmin";
 
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [open, setOpen] = useState(false)
+  const [isAdmin] = useAdmin();
   const [cart] = usecart();
   const handleLogout = () => {
     logOut()
@@ -17,7 +19,7 @@ const Navbar = () => {
   }
   return (
     <div className="max-w-screen-2xl mx-auto">
-      <div style={{ background: "rgba(21, 21, 21, 0.50)" }} className="navbar fixed z-10 max-w-screen-2xl mx-auto bg-black bg-opacity-100">
+      <div style={{ background: "rgba(21, 21, 21, 0.50)" }} className="navbar fixed z-10 max-w-screen-2xl mx-auto bg-black bg-opacity-100 rounded-b-3xl">
         <div className="navbar-start">
           <div className="dropdown">
             <label onClick={()=>setOpen(!open)} tabIndex={0} className="btn btn-ghost lg:hidden text-white">
@@ -62,8 +64,14 @@ const Navbar = () => {
               isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/contact'>Contact us</NavLink></li>
 
 
-            <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard'>Dashboard </NavLink></li>
+            {
+              user && isAdmin && <li><NavLink className={({ isActive }) =>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard/adminhome'>Dashboard </NavLink></li>
+            }
+            {
+              user && !isAdmin && <li><NavLink className={({ isActive }) =>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard/userhome'>Dashboard </NavLink></li>
+            }
 
             <li><NavLink className={({ isActive }) =>
               isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/menu'>Our  Menu</NavLink></li>
