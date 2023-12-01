@@ -9,3 +9,6 @@
 @tailwind utilities;
 
 
+.bg-color{
+    background: blur(84.5px);
+}

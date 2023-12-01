@@ -21,6 +21,28 @@ const Category = () => {
         modules={[Pagination]}
         className="mySwiper mt-12"
         autoplay
+        breakpoints={{
+          360: {
+            slidesPerView: 1.5, // Show 1 card for devices with a width smaller than 360 pixels
+            spaceBetween: 30,
+          },
+          480: {
+            slidesPerView: 1.5, // Show 1.5 cards for devices with a width between 360 and 480 pixels
+            spaceBetween: 30,
+          },
+          640: {
+            slidesPerView: 1.5, // Show 1.5 cards for devices with a width between 480 and 640 pixels
+            spaceBetween: 30,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }}
         
       >
         <SwiperSlide className='pb-12'>

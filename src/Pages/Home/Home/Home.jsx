@@ -14,7 +14,7 @@ const Home = () => {
         window.scrollTo(0, 0);
       }, []);
     return (
-        <div className="p-1">
+        <div className="p-1 bg-[#fbf4ef]">
              <Helmet>
                 <title>Bistro Boss | Home</title>
             </Helmet>
@@ -22,7 +22,7 @@ const Home = () => {
             <Category></Category>
             <BistroFeatureCard></BistroFeatureCard>
             <PopularMenu></PopularMenu>
-            <ContactUs></ContactUs>
+            {/* <ContactUs></ContactUs> */}
             <Feature></Feature>
             <Testomonials/>
         </div>

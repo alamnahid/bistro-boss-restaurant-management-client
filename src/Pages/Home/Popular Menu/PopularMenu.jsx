@@ -13,7 +13,7 @@ const PopularMenu = () => {
 
 
     return (
-        <div className="mt-24 max-w-screen-2xl mx-auto">
+        <div className="mt-24 max-w-screen-2xl mx-auto px-4 md:px-0 mb-20">
 
             <SectionTitle subHeading={'---Check it out---'}
                 heading={'FROM OUR MENU'} ></SectionTitle>

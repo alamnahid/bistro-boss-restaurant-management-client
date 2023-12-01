@@ -99,8 +99,8 @@ const router = createBrowserRouter([
         {
           path: 'updateitem/:id',
           element: <AdminRoutes><UpdateItems></UpdateItems></AdminRoutes>,
-          // loader: ({params})=>fetch(`https://bistro-boss-server-three-sigma.vercel.app/menu/${params.id}`)
-          loader: ()=>fetch('https://bistro-boss-server-three-sigma.vercel.app/menu')
+          // loader: ({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
+          loader: ()=>fetch('http://localhost:5000/menu')
 
         }
       ]

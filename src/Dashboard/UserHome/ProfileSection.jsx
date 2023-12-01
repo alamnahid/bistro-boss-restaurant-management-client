@@ -35,7 +35,7 @@ const ProfileSection = () => {
             <div className="w-[38rem] h-[30rem] bg-[#FEF9C3]  flex justify-center items-center flex-col">
 
                    <h1 className="text-black mb-8 cin text-[2.5rem] font-semibold">Your Activities</h1>
-                    <p className="flex items-center justify-start text-[1.5rem] font-semibold text-[#0088FE] gap-2"><FaShoppingCart/> Orders: {cart.length}</p>
+                    <p className="flex items-center justify-start text-[1.5rem] font-semibold text-[#0088FE] gap-2"><FaShoppingCart/> Orders: {cart.lengthP}</p>
 
                     <p className="flex mt-2 items-center justify-start text-[1.5rem] font-semibold text-[#00C4A1] gap-2"><FaStreetView/> Reviews: 0</p>
 

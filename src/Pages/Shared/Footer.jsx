@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
 
             <div>
-            <footer className="footer mt-28 flex justify-evenly gap-0  items-center">
+            <footer className="footer pt-28 bg-[#fbf4ef] flex justify-evenly gap-0  items-center">
                 <aside className="text-center flex-1 h-[400px] flex   flex-col justify-center items-center  bg-[#1F2937]">
                     <p className="text-white  md:text-[2rem] mb-4 font-medium">CONTACT US</p>
                     <p className="text-white text-xs md:text-[1.25rem] font-medium">123 ABS Street, Uni 21, Bangladesh</p>
