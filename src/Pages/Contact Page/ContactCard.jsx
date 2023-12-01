@@ -2,8 +2,8 @@
 
 const ContactCard = ({image, title, subtitle}) => {
     return (
-        <div className="w-[28rem] h-[19rem] border-2">
-            <div className="w-[28rem] flex justify-center items-center h-[5rem] bg-[#D1A054]">
+        <div className="md:w-[28rem] h-[19rem] border-2">
+            <div className="md:w-[28rem] flex justify-center items-center h-[5rem] bg-[#D1A054]">
                     <img src={image} alt="" />
             </div>
             <div className="w-[24rem] mx-auto flex justify-center flex-col items-center h-[12rem] bg-[#F3F3F3]">

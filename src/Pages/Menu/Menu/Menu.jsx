@@ -27,7 +27,7 @@ const Menu = () => {
 
 
     return (
-        <div className='max-w-screen-2xl mx-auto' >
+        <div className='max-w-screen-2xl mx-auto px-4' >
             <Helmet>
                 <title>Bistro Boss | Menu</title>
             </Helmet>
@@ -37,7 +37,7 @@ const Menu = () => {
             <MenuCover img={img} title={'OUR MENU'}
                 description={'Would you like to try a dish?'}>
             </MenuCover>
-            <div className='mt-32'>
+            <div className='mt-12 lg:mt-32'>
                 <SectionTitle subHeading={'---Do not miss---'}
                     heading={'TODAYS OFFER'} ></SectionTitle>
             </div>

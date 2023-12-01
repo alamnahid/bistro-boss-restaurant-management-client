@@ -36,8 +36,14 @@ const Navbar = () => {
                 isActive ? 'text-black  cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-black cursor-pointer text-base font-bold uppercase hover:text-white'} to='/contact'>Contact us</NavLink></li>
 
 
-              <li><NavLink className={({ isActive }) =>
-                isActive ? 'text-black  cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-black cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard'>Dashboard </NavLink></li>
+{
+              user && isAdmin && <li><NavLink className={({ isActive }) =>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard/adminhome'>Dashboard </NavLink></li>
+            }
+            {
+              user && !isAdmin && <li><NavLink className={({ isActive }) =>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard/userhome'>Dashboard </NavLink></li>
+            }
 
               <li><NavLink className={({ isActive }) =>
                 isActive ? 'text-black  cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-black  cursor-pointer text-base font-bold uppercase hover:text-white'} to='/menu'>Our  Menu</NavLink></li>
@@ -82,7 +88,7 @@ const Navbar = () => {
 
           </ul>
         </div>
-        <div className="w-[380px] space-x-3">
+        <div className="w-[380px] justify-end mr-5 space-x-3">
           <Link to='/dashboard/cart'><button className="flex px-2 text-xl text-white">
             <PiShoppingCartBold/>
             <div className="badge badge-secondary">+{cart.length}</div>

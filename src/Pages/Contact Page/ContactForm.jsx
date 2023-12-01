@@ -56,7 +56,7 @@ const ContactForm = () => {
     }
     return (
         <div>
-            <div className="px-[10%]">
+            <div className="md:px-[10%]">
 
                 <form className="bg-[#F3F3F3] px-12" onSubmit={handleSubmit(onSubmit)}>
 
@@ -65,7 +65,7 @@ const ContactForm = () => {
                             <span className="label-text text-[#444444] text-xl font-semibold">Recipe name*</span>
 
                         </label>
-                        <input {...register("name", { required: true })} type="text" placeholder="Your name" className="input input-bordered w-full mt-3 h-[4.5rem] bg-white rounded-lg placeholder:text-xl text-xl" defaultValue={user?.displayName} />
+                        <input {...register("name", { required: true })} type="text" placeholder="Your name" className="input input-bordered w-full mt-3 md:h-[4.5rem] bg-white rounded-lg placeholder:text-base md:placeholder:text-xl text-xl" defaultValue={user?.displayName} />
 
                         <div className="flex w-full gap-6 mt-5">
 
@@ -75,7 +75,7 @@ const ContactForm = () => {
 
                                 </label>
 
-                                <input {...register("email", { required: true })} type="email" placeholder="Your email" className="input input-bordered w-full mt-3 h-[4.5rem] bg-white rounded-lg placeholder:text-xl text-xl" defaultValue={user?.email} />
+                                <input {...register("email", { required: true })} type="email" placeholder="Your email" className="input input-bordered w-full mt-3 md:h-[4.5rem] bg-white rounded-lg placeholder:text-base md:placeholder:text-xl text-xl" defaultValue={user?.email} />
                                
                             </div>
 
@@ -85,7 +85,7 @@ const ContactForm = () => {
                                     <span className="label-text text-[#444444] text-xl font-semibold">Phone*</span>
 
                                 </label>
-                                <input {...register("phone", { required: true })} type="number" placeholder="Enter Number" className="input input-bordered w-full mt-3 h-[4.5rem] bg-white rounded-lg placeholder:text-xl text-xl" />
+                                <input {...register("phone", { required: true })} type="number" placeholder="Enter Number" className="input input-bordered w-full mt-3 md:h-[4.5rem] bg-white rounded-lg placeholder:text-base md:placeholder:text-xl text-xl" />
                             </div>
 
                         </div>
@@ -95,7 +95,7 @@ const ContactForm = () => {
                                 <span className="label-text text-[#444444] text-xl font-semibold">Message*</span>
 
                             </label>
-                            <textarea {...register("message", { required: true })} className="textarea textarea-warning w-full mt-3 h-[15.5rem] bg-white rounded-lg placeholder:text-xl text-xl pt-5 pl-5" placeholder="Comment Here"></textarea>
+                            <textarea {...register("message", { required: true })} className="textarea textarea-warning w-full mt-3 h-[15.5rem] bg-white rounded-lg placeholder:text-base md:placeholder:text-xl text-xl pt-5 pl-5" placeholder="Comment Here"></textarea>
                         </div>
 
 
