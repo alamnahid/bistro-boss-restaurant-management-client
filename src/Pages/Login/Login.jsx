@@ -99,9 +99,9 @@ const Login = () => {
 
 
     return (
-        <div style={{ backgroundImage: `url(${loginbg})` }} className="w-[100vw] py-[5vh] h-[100vh]">
+        <div style={{ backgroundImage: `url(${loginbg})` }} className="lg:w-[100vw] py-[5vh] lg:h-[100vh]">
 
-            <div style={{ backgroundImage: `url(${loginbg})`, boxShadow: "10px 10px 10px 10px rgba(0, 0, 0, 0.25)" }} className="max-w-screen-2xl h-[90vh] mx-auto flex justify-around items-center">
+            <div style={{ backgroundImage: `url(${loginbg})`, boxShadow: "10px 10px 10px 10px rgba(0, 0, 0, 0.25)" }} className="max-w-screen-2xl lg:h-[90vh] py-20 lg:py-0 mx-auto flex flex-col lg:flex-row justify-around items-center">
 
                 {/* image  */}
                 <div>
@@ -111,7 +111,7 @@ const Login = () => {
 
 
                 {/* form  */}
-                <div className="w-[28rem]">
+                <div className="md:w-[28rem]">
                     <h1 className="text-black text-center text-[2.5rem] font-semibold">Login</h1>
 
                     <form onSubmit={handleSubmit}>

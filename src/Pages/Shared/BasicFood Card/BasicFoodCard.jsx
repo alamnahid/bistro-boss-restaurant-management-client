@@ -61,7 +61,7 @@ const BasicFoodCard = ({item}) => {
     }
     return (
         <div>
-            <div className="card relative card-compact w-[26.5rem] h-[34rem] bg-[#ffffffd5]">
+            <div className="card px-4 relative card-compact w-[26.5rem] h-[34rem] bg-[#ffffffd5]">
             <img className="w-[26.5rem] h-[18rem]" src={image} alt="image" />
                 
                 <div className="absolute top-5 right-5 w-[5.6rem] h-[3rem] flex justify-center items-center rounded-xl bg-black">

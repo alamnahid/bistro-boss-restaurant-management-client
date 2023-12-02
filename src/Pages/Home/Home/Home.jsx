@@ -7,12 +7,18 @@ import Feature from "../Feature/Feature";
 import PopularMenu from "../Popular Menu/PopularMenu";
 import Testomonials from "../Testimonials/Testomonials";
 import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Home = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
+
+      useEffect(()=>{
+        AOS.init();
+    }, [])
     return (
         <div className="p-1 bg-[#fbf4ef]">
              <Helmet>

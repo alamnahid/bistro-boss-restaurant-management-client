@@ -14,7 +14,7 @@ const Feature = () => {
            </div>
 
                 <div className="flex gap-12 pb-28 flex-col md:flex-row justify-center items-center py-8 px-16">
-                    <div>
+                    <div data-aos="zoom-in-up">
                         <img className='md:w-[40rem] md:h-[25rem]' src={featuredImg} alt="" />
                     </div>
                     <div>
