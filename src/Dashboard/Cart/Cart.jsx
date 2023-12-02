@@ -41,7 +41,7 @@ const Cart = () => {
     });
   }
   return (
-    <div className="px-[10%] w-full bg-[#F6F6F6] h-full">
+    <div className="lg:px-[10%] w-full bg-[#F6F6F6] h-full">
 
       <div className="pt-12">
         <SectionTitle subHeading={'---My Cart---'} heading={'WANNA ADD MORE?'}></SectionTitle>
@@ -51,8 +51,8 @@ const Cart = () => {
 
 
       <div className="flex justify-between items-center ">
-        <h1 className="text-black text-[2rem] cin font-bold">Items: {cart.length}</h1>
-        <h1 className="text-black text-[2rem] cin font-bold">Total Price: {totalPrice}</h1>
+        <h1 className="text-black lg:text-[2rem] cin font-bold">Items: {cart.length}</h1>
+        <h1 className="text-black lg:text-[2rem] cin font-bold">Total Price: {totalPrice}</h1>
         {
           cart.length ? <Link to='/dashboard/payment'><button className="btn btn-neutral text-white text-xl bg-[#D1A054] border-none">Pay</button></Link> 
           :

@@ -38,11 +38,11 @@ const Navbar = () => {
 
 {
               user && isAdmin && <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard/adminhome'>Dashboard </NavLink></li>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase ' : 'text-black cursor-pointer text-base font-bold uppercase '} to='/dashboard/adminhome'>Dashboard </NavLink></li>
             }
             {
               user && !isAdmin && <li><NavLink className={({ isActive }) =>
-              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase hover:text-white' : 'text-white cursor-pointer text-base font-bold uppercase hover:text-white'} to='/dashboard/userhome'>Dashboard </NavLink></li>
+              isActive ? 'text-[#EEFF25] cursor-pointer text-base font-extrabold uppercase ' : 'text-black cursor-pointer text-base font-bold uppercase '} to='/dashboard/userhome'>Dashboard </NavLink></li>
             }
 
               <li><NavLink className={({ isActive }) =>
