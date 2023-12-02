@@ -29,7 +29,7 @@ const Contact = () => {
                 <SectionTitle subHeading={'---Visit Us---'} heading={'OUR LOCATION'}></SectionTitle>
             </div>
 
-             <div className="flex flex-col mt-12 lg:flex-row justify-between items-center gap-8">
+             <div className="flex flex-col mt-12 xl:flex-row justify-between items-center gap-8">
                 <ContactCard image={telephone} title={'PHONE'} subtitle={'+38 (012) 34 56 789'}></ContactCard>
                 <ContactCard image={location} title={'ADDRESS'} subtitle={'+38 (012) 34 56 789'}></ContactCard>
                 <ContactCard image={time} title={'WORKING HOURS'} subtitle={'Mon - Fri: 08:00 - 22:00'}></ContactCard>

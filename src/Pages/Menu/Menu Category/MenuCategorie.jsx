@@ -6,7 +6,7 @@ import Button from "../../Shared/BUtton/Button";
 const MenuCategorie = ({ items, title }) => {
     return (
         <div>
-            <div className="grid gap-8 mt-12 grid-cols-1 md:grid-cols-2">
+            <div className="grid gap-8 mt-12 grid-cols-1 xl:grid-cols-2">
                 {
                     items?.map(item => <MenuItem
                         key={item._id}

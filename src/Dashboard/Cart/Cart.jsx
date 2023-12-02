@@ -41,7 +41,7 @@ const Cart = () => {
     });
   }
   return (
-    <div className="px-[10%] bg-[#F6F6F6] h-full">
+    <div className="px-[10%] w-full bg-[#F6F6F6] h-full">
 
       <div className="pt-12">
         <SectionTitle subHeading={'---My Cart---'} heading={'WANNA ADD MORE?'}></SectionTitle>

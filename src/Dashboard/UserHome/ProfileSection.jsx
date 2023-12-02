@@ -19,7 +19,7 @@ const ProfileSection = () => {
     })
     // console.log(user)
     return (
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row">
             <div className="w-[38rem] h-[30rem] bg-[#FFEDD5] border-r-4 border-[#D1A054] flex justify-center items-center flex-col">
 
                     <div className="w-[12rem] h-[12rem] rounded-[50%] border-4 border-[#D1A054]">
