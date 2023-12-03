@@ -1,5 +1,8 @@
 ### Bistro Boss - Restaurant Management Website Live Link: https://onebistroboss.web.app/
 
+#### admin email: bistro@boss.com
+##### admin password: 123456
+
 Bistro Boss is a full-stack restaurant management website developed using Node.js, Express.js, MongoDB, React.js, and other technologies. This web application streamlines restaurant operations, offering an intuitive interface for users to explore menus, place orders, and manage their accounts. Administrators have access to a powerful dashboard for efficient management of products, users, and system settings.
 
 ## Table of Contents
