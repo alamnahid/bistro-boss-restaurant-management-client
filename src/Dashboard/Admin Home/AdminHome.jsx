@@ -30,7 +30,7 @@ const AdminHome = () => {
     
     
     return (
-        <div className="lg:mx-[5%] w-full">
+        <div className="lg:px-[5%] w-full">
             <h1 className="text-black mt-8 font-semibold text-[2rem]">Hi, Welcome {user?user.displayName : 'Back! '}</h1>
             
 

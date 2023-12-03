@@ -26,7 +26,7 @@ const BasicFoodCard = ({item}) => {
 
             }
             axiosSecure.post('/carts', cartItem)
-            // axios.post('http://localhost:5000/carts', cartItem)
+            // axios.post('https://bistro-boss-server-three-sigma.vercel.app/carts', cartItem)
             .then(res=>{
                 console.log(res.data)
                 if(res.data.insertedId){

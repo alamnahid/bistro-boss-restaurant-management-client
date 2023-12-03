@@ -157,15 +157,15 @@ const SignUp = () => {
                         <p className="text-[#444] mt-5 text-xl font-medium text-center">Or sign in with</p>
 
                         <div className="flex items-center justify-center gap-14 mt-5">
-                            <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
+                            {/* <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
                                 <img src={fb} alt="" />
-                            </div>
+                            </div> */}
                             <div onClick={handleGoogleSignIn} className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
                                 <img src={google} alt="" />
                             </div>
-                            <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
+                            {/* <div className="w-[3.25rem] hover:bg-white cursor-pointer btn-neutral h-[3.25rem] bg-[#F1F2F4] border-2 flex justify-center items-center border-black rounded-[50%] ">
                                 <img src={github} alt="" />
-                            </div>
+                            </div> */}
                         </div>
                     </form>
 
