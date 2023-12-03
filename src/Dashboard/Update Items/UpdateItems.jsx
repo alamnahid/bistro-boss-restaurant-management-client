@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { FaUtensils } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -39,19 +40,24 @@ const UpdateItems = () => {
             const menuRes = await axiosSecure.patch(`/menu/${_id}`, menuItem);
             console.log(menuRes.data)
             if(menuRes.data.modifiedCount > 0){
-                //
-                alert('updated')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Food Updated Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             }
         }
         console.log(res.data)
     }
     
     return (
-        <div>
+        <div className="w-full">
             <SectionTitle heading={'UPDATE ITEM'}></SectionTitle>
             
 
-            <div className="px-[10%]">
+            <div className="lg:px-[10%]">
 
                 <form className="bg-[#F3F3F3] px-12" onSubmit={handleSubmit(onSubmit)}>
 

@@ -51,7 +51,13 @@ const AllUsers = () => {
             console.log(res.data)
             if(res.data.modifiedCount > 0){
                 refetch()
-                alert('he is admin now')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User role is Admin Now",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 
             }
         })
@@ -59,7 +65,7 @@ const AllUsers = () => {
 
 
     return (
-        <div className="mx-[10%]">
+        <div className="lg:px-[10%] w-full">
 
             <div className="mt-12">
                 <SectionTitle subHeading={'---How many??---'} heading={'MANAGE ALL USERS'}></SectionTitle>

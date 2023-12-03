@@ -14,9 +14,9 @@ const Dashboard = () => {
 
 
     return (
-        <div className="drawer lg:drawer-open">
+        <div className="drawer lg:drawer-open w-full">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer-content flex flex-col items-start justify-start w-full">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn bg-[#D1A054] text-white font-semibold text-lg w-full drawer-button lg:hidden">Open drawer</label>
                 <Outlet></Outlet>
@@ -40,7 +40,7 @@ const Dashboard = () => {
                                 <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base hover:bg-white " to="/dashboard/userhome"><FaHome className="text-2xl" />User Home</NavLink></li>
                                 <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem] hover:bg-white " to="/dashboard/paymenthistory"><FaMoneyBill className="text-2xl" /> Payment History</NavLink></li>
                                 <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem] hover:bg-white " to="/dashboard/cart"><IoMenu className="text-2xl" /> Cart ({cart.length})</NavLink></li>
-                                <li><NavLink className="uppercase font-bold cin flex justify-start items-center text-base mt-[1.5rem] hover:bg-white " to="/dashboard/review"><FaStar className="text-2xl" /> Review</NavLink></li>
+                               
                             </>
                     }
 

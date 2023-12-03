@@ -36,21 +36,11 @@ const Login = () => {
             signIn(email, password)
             .then(result=>{console.log(result.user)
                 Swal.fire({
-                    title: "Logged in Successfully",
-                    showClass: {
-                      popup: `
-                        animate__animated
-                        animate__fadeInUp
-                        animate__faster
-                      `
-                    },
-                    hideClass: {
-                      popup: `
-                        animate__animated
-                        animate__fadeOutDown
-                        animate__faster
-                      `
-                    }
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully Logged In",
+                    showConfirmButton: false,
+                    timer: 1500
                   });
                 navigate(from, {replace: true})
 

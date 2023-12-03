@@ -28,7 +28,7 @@ const ManageItems = () => {
           refetch();
           Swal.fire({
             title: "Deleted!",
-            text: "Your file has been deleted.",
+            text: "Food has been deleted.",
             icon: "success"
           });
         }
@@ -39,7 +39,7 @@ const ManageItems = () => {
     });
   }
   return (
-    <div className="px-[10%] pt-12 bg-[#F6F6F6]">
+    <div className="lg:px-[10%] pt-12 bg-[#F6F6F6] w-full">
       <SectionTitle subHeading={'---Hurry Up!---'} heading={'MANAGE ALL ITEMS'}></SectionTitle>
 
       <div className="bg-white p-12 rounded-xl">

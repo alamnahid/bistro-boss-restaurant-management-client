@@ -3,6 +3,7 @@ import SectionTitle from "../Shared/SectionTitle";
 import { FaUtensils } from "react-icons/fa";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -34,16 +35,22 @@ const AddItems = () => {
             console.log(menuRes.data)
             if(menuRes.data.insertedId){
                 //
-                alert('added')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Food Added Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             }
         }
         console.log(res.data)
     }
     return (
-        <div className="pt-12">
+        <div className="pt-12 w-full">
             <SectionTitle subHeading={'---Whats new?---'} heading={'Add An Items'}></SectionTitle>
 
-            <div className="px-[10%]">
+            <div className="lg:px-[10%]">
 
                 <form className="bg-[#F3F3F3] px-12" onSubmit={handleSubmit(onSubmit)}>
 
